@@ -26,4 +26,8 @@ public class Dealership {
     public String getPhone() {
         return phone;
     }
-}
+    public ArrayList<Vehicle> getAllVehicles() {
+        return inventory;
+
+    }
+
