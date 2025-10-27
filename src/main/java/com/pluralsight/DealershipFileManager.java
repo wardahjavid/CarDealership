@@ -1,7 +1,6 @@
 package com.pluralsight;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.*;
 
 public class DealershipFileManager {
     public Dealership getDealership() {
@@ -25,10 +24,22 @@ public class DealershipFileManager {
                 Vehicle v = new Vehicle(vin, year, make, model, type, color, odometer, price);
                 dealership.addVehicle(v);
             }
-
         } catch (Exception e) {
             System.out.println("There is error loading the inventory file.");
         }
         return dealership;
+    }
+    public void saveDealership(Dealership dealership) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("inventory.csv"))) {
+            writer.write(dealership.getName() + "|" + dealership.getAddress() + "|" + dealership.getPhone());
+            writer.newLine();
+            for (Vehicle v : dealership.getAllVehicles()) {
+                writer.write(v.getVin() + "|" + v.getYear() + "|" + v.getMake() + "|" + v.getModel() + "|" +
+                        v.getType() + "|" + v.getColor() + "|" + v.getOdometer() + "|" + v.getPrice());
+                writer.newLine();
+            }
+        } catch (Exception e) {
+            System.out.println("There is an error saving the inventory files.");
+        }
     }
 }
