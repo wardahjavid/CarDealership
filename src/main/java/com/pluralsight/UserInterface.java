@@ -54,6 +54,7 @@ public class UserInterface {
             }
         }
     }
+
     private void displayMenu() {
         System.out.println("\n=== DEALERSHIP MENU ===");
         System.out.println("1 - Find vehicles by price");
@@ -68,6 +69,7 @@ public class UserInterface {
         System.out.println("99 - Quit");
         System.out.print("Enter your choice: ");
     }
+
     private void displayVehicles(ArrayList<Vehicle> vehicles) {
         if (vehicles == null || vehicles.isEmpty()) {
             System.out.println("No vehicles found.");
@@ -78,6 +80,31 @@ public class UserInterface {
             System.out.println(v);
         }
     }
+
+    private void processGetByPrice() {
+    }
+
+    private void processGetByMakeModel() {
+    }
+
+    private void processGetByYear() {
+    }
+
+    private void processGetByColor() {
+    }
+
+    private void processGetByMileage() {
+    }
+
+    private void processGetByType() {
+    }
+
+    private void processAddVehicle() {
+    }
+
+    private void processRemoveVehicle() {
+    }
+}
 
 
 
