@@ -26,11 +26,14 @@ public class Dealership {
     public String getPhone() {
         return phone;
     }
+
     public ArrayList<Vehicle> getAllVehicles() {
         return inventory;
 
     }
+
     public void addVehicle(Vehicle vehicle) {
         inventory.add(vehicle);
     }
+}
 
