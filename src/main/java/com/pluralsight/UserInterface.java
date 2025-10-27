@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -66,6 +67,16 @@ public class UserInterface {
         System.out.println("9 - Remove a vehicle");
         System.out.println("99 - Quit");
         System.out.print("Enter your choice: ");
+    }
+    private void displayVehicles(ArrayList<Vehicle> vehicles) {
+        if (vehicles == null || vehicles.isEmpty()) {
+            System.out.println("No vehicles found.");
+            return;
+        }
+
+        for (Vehicle v : vehicles) {
+            System.out.println(v);
+        }
     }
 
 
