@@ -32,3 +32,16 @@ Follow these steps to get your application running within IntelliJ IDEA:
 3. After the project opens, wait for IntelliJ to index the files and set up the project.
 4. Find the main class with the `public static void main(String[] args)` method.
 5. Right-click on the file and select 'Run 'YourMainClassName.main()'' to start the application.
+
+### Technologies Used
+- Java SE 17 (Microsoft Build) – Used to develop and run the entire console application.
+- IntelliJ IDEA Community Edition 2025.2 – The IDE used to write, debug, and run the project.
+- Core Java Libraries –
+  - java.io for reading/writing the dealership.csv file (File I/O).
+  - java.util for collections and scanner input (ArrayList, Scanner).
+
+java.time for date/time utilities (optional for extensions).
+
+CSV File Storage – Persistent data storage using a pipe-delimited (|) CSV file that holds all dealership and vehicle data.
+
+ANSI Color Codes (optional in UI) – Used in UserInterface to display colored menus and success/error messages in the terminal.
