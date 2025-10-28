@@ -80,17 +80,31 @@ public class UserInterface {
             return;
         }
 
-        System.out.println(BLUE + "\nVEHICLE INVENTORY " + RESET);
+        System.out.println(BLUE + "\n--- VEHICLE INVENTORY ---" + RESET);
+        System.out.println("-------------------------------------------------------------------------------------------");
+
+        // Table header
+        System.out.printf(YELLOW + "%-8s %-6s %-10s %-12s %-10s %-10s %-10s %-10s" + RESET + "\n",
+                "VIN", "YEAR", "MAKE", "MODEL", "TYPE", "COLOR", "ODOMETER", "PRICE");
+        System.out.println("-------------------------------------------------------------------------------------------");
+
         boolean useGreen = true;
 
         for (Vehicle vehicle : vehicles) {
-            if (useGreen) {
-                System.out.println(GREEN + vehicle + RESET);
-            } else {
-                System.out.println(CYAN + vehicle + RESET);
-            }
-            useGreen = !useGreen;  // alternate color each line
+            String color = useGreen ? GREEN : CYAN;
+            System.out.printf(color + "%-8d %-6d %-10s %-12s %-10s %-10s %-10d $%-10.2f" + RESET + "\n",
+                    vehicle.getVin(),
+                    vehicle.getYear(),
+                    vehicle.getMake(),
+                    vehicle.getModel(),
+                    vehicle.getType(),
+                    vehicle.getColor(),
+                    vehicle.getOdometer(),
+                    vehicle.getPrice());
+            useGreen = !useGreen; // flip color each line
         }
+
+        System.out.println("-------------------------------------------------------------------------------------------");
     }
 
 
