@@ -2,13 +2,7 @@
 
 Description of the Project
 
-This Java console application simulates a used car dealership management system.
-It allows users to search, view, add, and remove vehicles from a dealership’s inventory.
-The application loads data from a pipe-delimited CSV file (dealership.csv) that stores dealership information and all vehicle details such as VIN, year, make, model, type, color, odometer, and price.
-Its purpose is to help dealership employees manage inventory efficiently without needing a graphical interface.
-The intended users are dealership staff or sales representatives who need quick access to inventory data.
-The main functionality includes searching vehicles by multiple filters (price, make/model, year, color, mileage, and type), viewing all inventory, and saving updates back to the CSV file automatically.
-This project solves the problem of manual record-keeping by digitizing dealership inventory in a simple, text-based interface.
+This Java console application simulates a used car dealership management system. It allows users to search, view, add, and remove vehicles from a dealership’s inventory. The application loads data from a pipe-delimited CSV file (dealership.csv) that stores dealership information and all vehicle details such as VIN, year, make, model, type, color, odometer, and price. Its purpose is to help dealership employees manage inventory efficiently without needing a graphical interface. The intended users are dealership staff or sales representatives who need quick access to inventory data. The main functionality includes searching vehicles by multiple filters (price, make/model, year, color, mileage, and type), viewing all inventory, and saving updates back to the CSV file automatically. This project solves the problem of manual record-keeping by digitizing dealership inventory in a simple, text-based interface.
 
 User Stories
 
