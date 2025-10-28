@@ -4,9 +4,8 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class DealershipFileManager {
-    private static final String FILE_NAME = "dealership.csv"; // must be in project root
+    private static final String FILE_NAME = "dealership.csv";
 
-    // Loads dealership and vehicles from file
     public Dealership getDealership() {
         Dealership dealership = null;
 

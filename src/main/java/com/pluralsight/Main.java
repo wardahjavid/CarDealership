@@ -6,7 +6,7 @@ public class Main {
         System.out.println("      Welcome to the Car Dealership   ");
         System.out.println("======================================");
 
-        // Create and start the user interface
+
         UserInterface ui = new UserInterface();
         ui.display();
     }

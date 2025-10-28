@@ -8,7 +8,6 @@ public class Dealership {
     private String phone;
     private ArrayList<Vehicle> vehicles;
 
-    // Constructor
     public Dealership(String name, String address, String phone) {
         this.name = name;
         this.address = address;
@@ -16,22 +15,18 @@ public class Dealership {
         this.vehicles = new ArrayList<>();
     }
 
-    // Getters
     public String getName() { return name; }
     public String getAddress() { return address; }
     public String getPhone() { return phone; }
 
-    // Return all vehicles
     public ArrayList<Vehicle> getAllVehicles() {
         return vehicles;
     }
 
-    // Add a vehicle
     public void addVehicle(Vehicle vehicle) {
         vehicles.add(vehicle);
     }
 
-    // Remove vehicle by VIN
     public void removeVehicle(int vin) {
         boolean removed = vehicles.removeIf(v -> v.getVin() == vin);
         if (removed) {
@@ -41,11 +36,7 @@ public class Dealership {
         }
     }
 
-    // ------------------------------------------------------------------
-    // SEARCH METHODS
-    // ------------------------------------------------------------------
 
-    // 1. Find by price range
     public ArrayList<Vehicle> getVehiclesByPrice(double minPrice, double maxPrice) {
         ArrayList<Vehicle> matches = new ArrayList<>();
         for (Vehicle v : vehicles) {
@@ -56,7 +47,6 @@ public class Dealership {
         return matches;
     }
 
-    // 2. Find by make and model
     public ArrayList<Vehicle> getVehiclesByMakeModel(String make, String model) {
         ArrayList<Vehicle> matches = new ArrayList<>();
         for (Vehicle v : vehicles) {
@@ -68,7 +58,6 @@ public class Dealership {
         return matches;
     }
 
-    // 3. Find by year range
     public ArrayList<Vehicle> getVehiclesByYear(int minYear, int maxYear) {
         ArrayList<Vehicle> matches = new ArrayList<>();
         for (Vehicle v : vehicles) {
@@ -79,7 +68,6 @@ public class Dealership {
         return matches;
     }
 
-    // 4. Find by color
     public ArrayList<Vehicle> getVehiclesByColor(String color) {
         ArrayList<Vehicle> matches = new ArrayList<>();
         for (Vehicle v : vehicles) {
@@ -90,7 +78,6 @@ public class Dealership {
         return matches;
     }
 
-    // 5. Find by mileage
     public ArrayList<Vehicle> getVehiclesByMileage(int minMileage, int maxMileage) {
         ArrayList<Vehicle> matches = new ArrayList<>();
         for (Vehicle v : vehicles) {
@@ -101,7 +88,6 @@ public class Dealership {
         return matches;
     }
 
-    // 6. Find by type
     public ArrayList<Vehicle> getVehiclesByType(String type) {
         ArrayList<Vehicle> matches = new ArrayList<>();
         for (Vehicle v : vehicles) {
@@ -112,9 +98,6 @@ public class Dealership {
         return matches;
     }
 
-    // ------------------------------------------------------------------
-    // Optional: Display summary info
-    // ------------------------------------------------------------------
     public void printSummary() {
         System.out.println("Dealership: " + name);
         System.out.println("Address: " + address);
