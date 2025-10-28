@@ -60,6 +60,8 @@ public class UserInterface {
             }
         }
     }
+
+
     private void displayMenu() {
         System.out.println(BLUE + "\n=== DEALERSHIP MENU ===" + RESET);
         System.out.println(YELLOW + "1" + RESET + " - Find vehicles by price");
@@ -144,5 +146,6 @@ public class UserInterface {
     private void processRemoveVehicle() {
         System.out.println(YELLOW + "The method Remove vehicle has not been implemented yet." + RESET);
     }
+
 }
 
