@@ -19,95 +19,16 @@ The main functionality includes searching vehicles by multiple filters (price, m
 - As a user, I want to receive immediate feedback, so I can understand what to do next.
 
 ### Setup
-Instructions on how to set up and run the project using IntelliJ IDEA
-Prerequisites
+Instructions on how to set up and run the project using IntelliJ IDEA.
 
-IntelliJ IDEA: Ensure you have IntelliJ IDEA installed, which you can download from JetBrains IntelliJ IDEA
-.
-
-Java SDK: Make sure Java SDK (version 17 or later) is installed and configured in IntelliJ.
-
-Running the Application in IntelliJ
-
-Open IntelliJ IDEA.
-
-Select "Open" and navigate to the directory where you cloned or downloaded the project.
-
-After the project opens, wait for IntelliJ to index the files and set up the project.
-
-Make sure dealership.csv is located in the project root directory (same level as the src folder).
-
-Find the main class located at src/com/pluralsight/Main.java which contains the public static void main(String[] args) method.
-
-Right-click on the Main.java file and select 'Run 'Main.main()' to start the application.
-
-Technologies Used
-
-Java: Version 17
-
-IDE: IntelliJ IDEA Community Edition 2025.2
-
-Data Storage: Pipe-delimited CSV file (dealership.csv) for persistent data storage
-
-Libraries: No external libraries used — entirely built with core Java (java.io, java.util, java.time)
-
-Demo
-Application Screenshot
-
-(You can include a screenshot or GIF here later)
-
-Example Output:
-
-=== DEALERSHIP MENU ===
-1 - Find vehicles by price
-2 - Find vehicles by make/model
-3 - Find vehicles by year range
-4 - Find vehicles by color
-5 - Find vehicles by mileage
-6 - Find vehicles by type
-7 - List all vehicles
-8 - Add a vehicle
-9 - Remove a vehicle
-99 - Quit
-
-
-When “7” is selected:
-
---- CURRENT VEHICLE INVENTORY ---
-VIN      YEAR   MAKE         MODEL        TYPE       COLOR      ODOMETER  PRICE
---------------------------------------------------------------------------------
-10112    1993   Ford         Explorer     SUV        Red        525123    $995.00
-37846    2001   Ford         Ranger       Truck      Yellow     172544    $1995.00
-44901    2012   Honda        Civic        SUV        Gray       103221    $6995.00
-50000    2021   Toyota       Camry        Sedan      Silver     12000     $24999.99
-
-Future Work
-
-Add input validation for better error handling.
-
-Implement sorting features (e.g., sort by price or year).
-
-Add a search history or reporting system (e.g., total inventory value).
-
-Create a graphical user interface (GUI) using JavaFX or Swing.
-
-Integrate with a database (e.g., MySQL) for more advanced data management.
-
-Resources
-
-Java Programming Tutorial – Oracle Java Documentation
-
-Effective Java by Joshua Bloch
-
-Pluralsight Course: Java Fundamentals – Capstone Workshop
-
-IntelliJ IDEA User Guide
-
-Team Members
-
-Jenny Hawk – Developer and project lead, responsible for coding, debugging, and testing all classes (Main, UserInterface, Dealership, DealershipFileManager, and Vehicle).
-
-Thanks
-
-Thank you to the Pluralsight instructors for structured lessons and project guidance.
-A special thanks to mentors and peers for support and feedback throughout the capstone workshop.
+#### Prerequisites
+- IntelliJ IDEA: Ensure you have IntelliJ IDEA installed, which you can download from here.
+- Java SDK: Make sure Java SDK is installed and configured in IntelliJ.
+  
+#### Running the Application in IntelliJ
+Follow these steps to get your application running within IntelliJ IDEA:
+1. Open IntelliJ IDEA.
+2. Select "Open" and navigate to the directory where you cloned or downloaded the project.
+3. After the project opens, wait for IntelliJ to index the files and set up the project.
+4. Find the main class with the public static void main(String[] args) method.
+5. Right-click on the file and select 'Run 'YourMainClassName.main()'' to start the application.
