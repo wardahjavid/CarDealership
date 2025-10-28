@@ -37,11 +37,21 @@ Follow these steps to get your application running within IntelliJ IDEA:
 - Java SE 17 (Microsoft Build) – Used to develop and run the entire console application.
 - IntelliJ IDEA Community Edition 2025.2 – The IDE used to write, debug, and run the project.
 - Core Java Libraries –
-  - java.io for reading/writing the dealership.csv file (File I/O).
-  - java.util for collections and scanner input (ArrayList, Scanner).
+  - java.io for reading/writing the Dealership.csv file.
+  - java.util for collections and scanner input.
+  - java.time for date/time utilities).
+- CSV File Storage – Persistent data storage using a pipe-delimited CSV file that holds all dealership and vehicle data.
+- ANSI Color Codes – Used in UserInterface to display colored menus and success/error messages in the terminal.
 
-java.time for date/time utilities (optional for extensions).
+### Future Work
+- Add input validation for better error handling.
+- Implement sorting features (e.g., sort by price or year).
+- Add a search history or reporting system (e.g., total inventory value).
+- Create a graphical user interface (GUI) using JavaFX or Swing.
+- Integrate with a database (e.g., MySQL) for more advanced data management.
 
-CSV File Storage – Persistent data storage using a pipe-delimited (|) CSV file that holds all dealership and vehicle data.
-
-ANSI Color Codes (optional in UI) – Used in UserInterface to display colored menus and success/error messages in the terminal.
+### Resources
+* Java Programming Tutorial – Oracle Java Documentation
+* Effective Java by Joshua Bloch
+* Pluralsight Course: Java Fundamentals – Capstone Workshop
+* IntelliJ IDEA User Guide
