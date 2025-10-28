@@ -76,6 +76,7 @@ public class UserInterface {
         System.out.println(RED + "99" + RESET + " - Quit");
         System.out.print(CYAN + "Enter your choice: " + RESET);
     }
+
     private void displayVehicles(ArrayList<Vehicle> vehicles) {
         if (vehicles == null || vehicles.isEmpty()) {
             System.out.println(RED + "There are no vehicles found." + RESET);
@@ -110,42 +111,135 @@ public class UserInterface {
     }
 
 
-    private void processAllVehiclesRequest() {
-        displayVehicles(dealership.getAllVehicles());
-    }
-
-    // Placeholder methods for later phases
     private void processGetByPrice() {
-        System.out.println(YELLOW + "The search by price has not been implemented yet." + RESET);
+        try {
+            Scanner input = new Scanner(System.in);
+            System.out.print("Enter minimum price: ");
+            double min = input.nextDouble();
+            System.out.print("Enter maximum price: ");
+            double max = input.nextDouble();
+            ArrayList<Vehicle> matches = dealership.getVehiclesByPrice(min, max);
+            displayVehicles(matches);
+        } catch (Exception e) {
+            System.out.println(RED + "Error: Invalid price input." + RESET);
+        }
     }
 
     private void processGetByMakeModel() {
-        System.out.println(YELLOW + "The search by make/model has not been implemented yet." + RESET);
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter make: ");
+        String make = input.nextLine();
+        System.out.print("Enter model: ");
+        String model = input.nextLine();
+        ArrayList<Vehicle> matches = dealership.getVehiclesByMakeModel(make, model);
+        displayVehicles(matches);
     }
 
     private void processGetByYear() {
-        System.out.println(YELLOW + "The search by year has not been implemented yet." + RESET);
+        try {
+            Scanner input = new Scanner(System.in);
+            System.out.print("Enter minimum year: ");
+            int min = input.nextInt();
+            System.out.print("Enter maximum year: ");
+            int max = input.nextInt();
+            ArrayList<Vehicle> matches = dealership.getVehiclesByYear(min, max);
+            displayVehicles(matches);
+        } catch (Exception e) {
+            System.out.println(RED + "There is an error: Invalid year input. " + RESET);
+        }
     }
 
     private void processGetByColor() {
-        System.out.println(YELLOW + "The search by color has not been implemented yet." + RESET);
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter color: ");
+        String color = input.nextLine();
+        ArrayList<Vehicle> matches = dealership.getVehiclesByColor(color);
+        displayVehicles(matches);
     }
-
     private void processGetByMileage() {
-        System.out.println(YELLOW + "The search by mileage has not implemented yet." + RESET);
+        try {
+            Scanner input = new Scanner(System.in);
+            System.out.print("Enter minimum mileage: ");
+            int min = input.nextInt();
+            System.out.print("Enter maximum mileage: ");
+            int max = input.nextInt();
+            ArrayList<Vehicle> matches = dealership.getVehiclesByMileage(min, max);
+            displayVehicles(matches);
+        } catch (Exception e) {
+            System.out.println(RED + "There is an error: Invalid mileage input." + RESET);
+        }
+    }
+    private void processGetByType() {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter type (SUV, Truck, Sedan, etc.): ");
+        String type = input.nextLine();
+        ArrayList<Vehicle> matches = dealership.getVehiclesByType(type);
+        displayVehicles(matches);
     }
 
-    private void processGetByType() {
-        System.out.println(YELLOW + "The search by type has not implemented yet." + RESET);
+    private void processAllVehiclesRequest() {
+        DealershipFileManager dfm = new DealershipFileManager();
+        this.dealership = dfm.getDealership();
+
+        ArrayList<Vehicle> allVehicles = dealership.getAllVehicles();
+
+        if (allVehicles.isEmpty()) {
+            System.out.println("No vehicles found in inventory.");
+        } else {
+            System.out.println("\n--- CURRENT VEHICLE INVENTORY ---");
+            System.out.printf("%-8s %-6s %-12s %-12s %-10s %-10s %-10s %-10s%n",
+                    "VIN", "YEAR", "MAKE", "MODEL", "TYPE", "COLOR", "ODOMETER", "PRICE");
+            System.out.println("--------------------------------------------------------------------------------");
+            for (Vehicle v : allVehicles) {
+                System.out.printf("%-8d %-6d %-12s %-12s %-10s %-10s %-10d $%.2f%n",
+                        v.getVin(), v.getYear(), v.getMake(), v.getModel(),
+                        v.getType(), v.getColor(), v.getOdometer(), v.getPrice());
+            }
+        }
     }
+
 
     private void processAddVehicle() {
-        System.out.println(YELLOW + "The method Add vehicle has been not implemented yet." + RESET);
-    }
+        try {
+            Scanner input = new Scanner(System.in);
+            System.out.print("VIN: ");
+            int vin = input.nextInt();
+            System.out.print("Year: ");
+            int year = input.nextInt();
+            input.nextLine(); // clear buffer
+            System.out.print("Make: ");
+            String make = input.nextLine();
+            System.out.print("Model: ");
+            String model = input.nextLine();
+            System.out.print("Type: ");
+            String type = input.nextLine();
+            System.out.print("Color: ");
+            String color = input.nextLine();
+            System.out.print("Odometer: ");
+            int odometer = input.nextInt();
+            System.out.print("Price: ");
+            double price = input.nextDouble();
 
+            Vehicle newVehicle = new Vehicle(vin, year, make, model, type, color, odometer, price);
+            dealership.addVehicle(newVehicle);
+
+            new DealershipFileManager().saveDealership(dealership);
+            System.out.println("✅ Vehicle added and saved to file!");
+        } catch (Exception e) {
+            System.out.println("Error adding vehicle: " + e.getMessage());
+        }
+    }
     private void processRemoveVehicle() {
-        System.out.println(YELLOW + "The method Remove vehicle has not been implemented yet." + RESET);
+        try {
+            Scanner input = new Scanner(System.in);
+            System.out.print("Enter VIN to remove: ");
+            int vin = input.nextInt();
+
+            dealership.removeVehicle(vin);
+            new DealershipFileManager().saveDealership(dealership);
+            System.out.println("✅ Vehicle removed and file updated!");
+        } catch (Exception e) {
+            System.out.println("Error removing vehicle: " + e.getMessage());
+        }
     }
-
 }
-
