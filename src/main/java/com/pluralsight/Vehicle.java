@@ -22,22 +22,27 @@ public class Vehicle {
     }
 
     public int getVin() {
+
         return vin;
     }
 
     public int getYear() {
+
         return year;
     }
 
     public String getModel() {
+
         return model;
     }
 
     public String getMake() {
+
         return make;
     }
 
     public String getType() {
+
         return type;
     }
 
@@ -50,6 +55,7 @@ public class Vehicle {
     }
 
     public double getPrice() {
+
         return price;
     }
     @Override

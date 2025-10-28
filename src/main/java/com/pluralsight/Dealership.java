@@ -15,9 +15,11 @@ public class Dealership {
         this.inventory = new ArrayList<>();
     }
     public String getName() {
+
         return name;
     }
     public String getAddress() {
+
         return address;
     }
     public String getPhone() {
@@ -32,11 +34,17 @@ public class Dealership {
     public void removeVehicle(Vehicle vehicle) {
         inventory.remove(vehicle);
     }
-    public ArrayList<Vehicle> getVehiclesByPrice(double min, double max) { return null; }
-    public ArrayList<Vehicle> getVehiclesByMakeModel(String make, String model) { return null; }
-    public ArrayList<Vehicle> getVehiclesByYear(int min, int max) { return null; }
-    public ArrayList<Vehicle> getVehiclesByColor(String color) { return null; }
-    public ArrayList<Vehicle> getVehiclesByMileage(int min, int max) { return null; }
-    public ArrayList<Vehicle> getVehiclesByType(String type) { return null; }
+    public ArrayList<Vehicle> getVehiclesByPrice(double min, double max) {
+        return null; }
+    public ArrayList<Vehicle> getVehiclesByMakeModel(String make, String model) {
+        return null; }
+    public ArrayList<Vehicle> getVehiclesByYear(int min, int max) {
+        return null; }
+    public ArrayList<Vehicle> getVehiclesByColor(String color) {
+        return null; }
+    public ArrayList<Vehicle> getVehiclesByMileage(int min, int max) {
+        return null; }
+    public ArrayList<Vehicle> getVehiclesByType(String type) {
+        return null; }
 }
 
