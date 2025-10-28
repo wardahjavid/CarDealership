@@ -51,7 +51,6 @@ Follow these steps to get your application running within IntelliJ IDEA:
 - Integrate with a database (e.g., MySQL) for more advanced data management.
 
 ### Resources
-* Java Programming Tutorial – Oracle Java Documentation
+* Java Programming Tutorial 
 * Effective Java by Joshua Bloch
-* Pluralsight Course: Java Fundamentals – Capstone Workshop
 * IntelliJ IDEA User Guide
