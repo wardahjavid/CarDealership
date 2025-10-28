@@ -5,6 +5,12 @@ import java.util.Scanner;
 
 public class UserInterface {
     private Dealership dealership;
+    private static final String RESET = "\u001B[0m";
+    private static final String RED = "\u001B[31m";
+    private static final String GREEN = "\u001B[32m";
+    private static final String YELLOW = "\u001B[33m";
+    private static final String BLUE = "\u001B[34m";
+    private static final String CYAN = "\u001B[36m";
 
     public void display() {
         DealershipFileManager dfm = new DealershipFileManager();
@@ -46,65 +52,83 @@ public class UserInterface {
                     processRemoveVehicle();
                     break;
                 case "99":
-                    System.out.println("Goodbye!");
+                    System.out.println(GREEN + "Goodbye! Thank you for using the Dealership App." + RESET);
                     break;
                 default:
-                    System.out.println("This is an invalid choice.");
+                    System.out.println(RED + "Invalid choice. Please try again." + RESET);
                     break;
             }
         }
     }
     private void displayMenu() {
-        System.out.println("\n=== DEALERSHIP MENU ===");
-        System.out.println("1 - Find vehicles by price");
-        System.out.println("2 - Find vehicles by make/model");
-        System.out.println("3 - Find vehicles by year range");
-        System.out.println("4 - Find vehicles by color");
-        System.out.println("5 - Find vehicles by mileage");
-        System.out.println("6 - Find vehicles by type");
-        System.out.println("7 - List all vehicles");
-        System.out.println("8 - Add a vehicle");
-        System.out.println("9 - Remove a vehicle");
-        System.out.println("99 - Quit");
-        System.out.print("Enter your choice: ");
+        System.out.println(BLUE + "\n=== DEALERSHIP MENU ===" + RESET);
+        System.out.println(YELLOW + "1" + RESET + " - Find vehicles by price");
+        System.out.println(YELLOW + "2" + RESET + " - Find vehicles by make/model");
+        System.out.println(YELLOW + "3" + RESET + " - Find vehicles by year range");
+        System.out.println(YELLOW + "4" + RESET + " - Find vehicles by color");
+        System.out.println(YELLOW + "5" + RESET + " - Find vehicles by mileage");
+        System.out.println(YELLOW + "6" + RESET + " - Find vehicles by type");
+        System.out.println(YELLOW + "7" + RESET + " - List all vehicles");
+        System.out.println(YELLOW + "8" + RESET + " - Add a vehicle");
+        System.out.println(YELLOW + "9" + RESET + " - Remove a vehicle");
+        System.out.println(RED + "99" + RESET + " - Quit");
+        System.out.print(CYAN + "Enter your choice: " + RESET);
     }
-
     private void displayVehicles(ArrayList<Vehicle> vehicles) {
         if (vehicles == null || vehicles.isEmpty()) {
-            System.out.println("No vehicles found.");
+            System.out.println(RED + "There are no vehicles found." + RESET);
             return;
         }
 
-        for (Vehicle v : vehicles) {
-            System.out.println(v);
+        System.out.println(BLUE + "\nVEHICLE INVENTORY " + RESET);
+        boolean useGreen = true;
+
+        for (Vehicle vehicle : vehicles) {
+            if (useGreen) {
+                System.out.println(GREEN + vehicle + RESET);
+            } else {
+                System.out.println(CYAN + vehicle + RESET);
+            }
+            useGreen = !useGreen;  // alternate color each line
         }
     }
 
+
+    private void processAllVehiclesRequest() {
+        displayVehicles(dealership.getAllVehicles());
+    }
+
+    // Placeholder methods for later phases
     private void processGetByPrice() {
+        System.out.println(YELLOW + "The search by price has not been implemented yet." + RESET);
     }
 
     private void processGetByMakeModel() {
+        System.out.println(YELLOW + "The search by make/model has not been implemented yet." + RESET);
     }
 
     private void processGetByYear() {
+        System.out.println(YELLOW + "The search by year has not been implemented yet." + RESET);
     }
 
     private void processGetByColor() {
+        System.out.println(YELLOW + "The search by color has not been implemented yet." + RESET);
     }
 
     private void processGetByMileage() {
+        System.out.println(YELLOW + "The search by mileage has not implemented yet." + RESET);
     }
 
     private void processGetByType() {
-    }
-
-    private void processAllVehiclesRequest() {
+        System.out.println(YELLOW + "The search by type has not implemented yet." + RESET);
     }
 
     private void processAddVehicle() {
+        System.out.println(YELLOW + "The method Add vehicle has been not implemented yet." + RESET);
     }
 
     private void processRemoveVehicle() {
+        System.out.println(YELLOW + "The method Remove vehicle has not been implemented yet." + RESET);
     }
 }
 
