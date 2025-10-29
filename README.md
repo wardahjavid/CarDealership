@@ -112,9 +112,9 @@ Shows the user exiting the program after completing their actions.
 - Integrate with a database (e.g., MySQL) for more advanced data management.
 
 ### Resources
-* Java Programming Tutorial 
-* Effective Java by Joshua Bloch
+* Potato Sensei
 * IntelliJ IDEA User Guide
+* A special thank you to Professor Raymond Maroun for all his advice and help!
 
 ### Team Members
 Wardah Javid – Designed and developed all classes, implemented file I/O and search features, and completed testing and documentation for the Car Dealership console application.
