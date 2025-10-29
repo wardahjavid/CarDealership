@@ -54,3 +54,11 @@ Follow these steps to get your application running within IntelliJ IDEA:
 * Java Programming Tutorial 
 * Effective Java by Joshua Bloch
 * IntelliJ IDEA User Guide
+
+### Team Members
+Wardah Javid – Designed and developed all classes, implemented file I/O and search features, and completed testing and documentation for the Car Dealership console application.
+
+### Thanks
+Thank you to the Pluralsight instructors for structured lessons and project guidance.
+A special thanks to mentors and peers for support and feedback throughout the capstone workshop.
+
