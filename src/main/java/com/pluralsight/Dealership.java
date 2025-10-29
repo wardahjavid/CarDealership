@@ -15,9 +15,15 @@ public class Dealership {
         this.vehicles = new ArrayList<>();
     }
 
-    public String getName() { return name; }
-    public String getAddress() { return address; }
-    public String getPhone() { return phone; }
+    public String getName() {
+        return name;
+    }
+    public String getAddress() {
+        return address;
+    }
+    public String getPhone() {
+        return phone;
+    }
 
     public ArrayList<Vehicle> getAllVehicles() {
         return vehicles;
@@ -28,7 +34,7 @@ public class Dealership {
     }
 
     public void removeVehicle(int vin) {
-        boolean removed = vehicles.removeIf(v -> v.getVin() == vin);
+        boolean removed = vehicles.removeIf(vehicle -> vehicle.getVin() == vin);
         if (removed) {
             System.out.println("Vehicle with VIN " + vin + " removed.");
         } else {
@@ -39,9 +45,9 @@ public class Dealership {
 
     public ArrayList<Vehicle> getVehiclesByPrice(double minPrice, double maxPrice) {
         ArrayList<Vehicle> matches = new ArrayList<>();
-        for (Vehicle v : vehicles) {
-            if (v.getPrice() >= minPrice && v.getPrice() <= maxPrice) {
-                matches.add(v);
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle.getPrice() >= minPrice && vehicle.getPrice() <= maxPrice) {
+                matches.add(vehicle);
             }
         }
         return matches;
@@ -49,10 +55,10 @@ public class Dealership {
 
     public ArrayList<Vehicle> getVehiclesByMakeModel(String make, String model) {
         ArrayList<Vehicle> matches = new ArrayList<>();
-        for (Vehicle v : vehicles) {
-            if (v.getMake().equalsIgnoreCase(make) &&
-                    v.getModel().equalsIgnoreCase(model)) {
-                matches.add(v);
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle.getMake().equalsIgnoreCase(make) &&
+                    vehicle.getModel().equalsIgnoreCase(model)) {
+                matches.add(vehicle);
             }
         }
         return matches;
@@ -60,9 +66,9 @@ public class Dealership {
 
     public ArrayList<Vehicle> getVehiclesByYear(int minYear, int maxYear) {
         ArrayList<Vehicle> matches = new ArrayList<>();
-        for (Vehicle v : vehicles) {
-            if (v.getYear() >= minYear && v.getYear() <= maxYear) {
-                matches.add(v);
+        for (Vehicle vehicle: vehicles) {
+            if (vehicle.getYear() >= minYear && vehicle.getYear() <= maxYear) {
+                matches.add(vehicle);
             }
         }
         return matches;
@@ -70,9 +76,9 @@ public class Dealership {
 
     public ArrayList<Vehicle> getVehiclesByColor(String color) {
         ArrayList<Vehicle> matches = new ArrayList<>();
-        for (Vehicle v : vehicles) {
-            if (v.getColor().equalsIgnoreCase(color)) {
-                matches.add(v);
+        for (Vehicle vehicle: vehicles) {
+            if (vehicle.getColor().equalsIgnoreCase(color)) {
+                matches.add(vehicle);
             }
         }
         return matches;
@@ -80,9 +86,9 @@ public class Dealership {
 
     public ArrayList<Vehicle> getVehiclesByMileage(int minMileage, int maxMileage) {
         ArrayList<Vehicle> matches = new ArrayList<>();
-        for (Vehicle v : vehicles) {
-            if (v.getOdometer() >= minMileage && v.getOdometer() <= maxMileage) {
-                matches.add(v);
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle.getOdometer() >= minMileage && vehicle.getOdometer() <= maxMileage) {
+                matches.add(vehicle);
             }
         }
         return matches;
@@ -90,9 +96,9 @@ public class Dealership {
 
     public ArrayList<Vehicle> getVehiclesByType(String type) {
         ArrayList<Vehicle> matches = new ArrayList<>();
-        for (Vehicle v : vehicles) {
-            if (v.getType().equalsIgnoreCase(type)) {
-                matches.add(v);
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle.getType().equalsIgnoreCase(type)) {
+                matches.add(vehicle);
             }
         }
         return matches;

@@ -224,7 +224,7 @@ public class UserInterface {
             dealership.addVehicle(newVehicle);
 
             new DealershipFileManager().saveDealership(dealership);
-            System.out.println("✅ Vehicle added and saved to file!");
+            System.out.println("Vehicle added and saved to file!");
         } catch (Exception e) {
             System.out.println("Error adding vehicle: " + e.getMessage());
         }
@@ -237,7 +237,7 @@ public class UserInterface {
 
             dealership.removeVehicle(vin);
             new DealershipFileManager().saveDealership(dealership);
-            System.out.println("✅ Vehicle removed and file updated!");
+            System.out.println("Vehicle removed and file updated!");
         } catch (Exception e) {
             System.out.println("Error removing vehicle: " + e.getMessage());
         }
