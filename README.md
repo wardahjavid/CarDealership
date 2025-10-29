@@ -53,49 +53,49 @@ Each figure demonstrates one of the main features required in the Workbook 4 Wor
 #### **Figure 1 – Program Start and Main Menu (Option 7: List All Vehicles)**
 Displays the welcome message and main menu after loading vehicle data from `dealership.csv`, followed by a full list of current inventory.
 
-![Program Start and Main Menu](screenshots/car1.png)
+![Program Start and Main Menu](screenshots/car7.png)
 
 ---
 
 #### **Figure 2 – Find Vehicles by Price Range (Option 1)**
 Shows user input for minimum and maximum price, and the resulting filtered vehicle list.
 
-![Find by Price Range](screenshots/car2.png)
+![Find by Price Range](screenshots/car1.png)
 
 ---
 
 #### **Figure 3 – Find Vehicles by Make and Model (Option 2)**
 Demonstrates searching for a specific make and model (e.g., *Honda Civic*).
 
-![Find by Make and Model](screenshots/car3.png)
+![Find by Make and Model](screenshots/car2.png)
 
 ---
 
 #### **Figure 4 – Find Vehicles by Year Range (Option 3)**
 Filters the inventory to display vehicles between a chosen year range.
 
-![Find by Year Range](screenshots/car4.png)
+![Find by Year Range](screenshots/car3.png)
 
 ---
 
 #### **Figure 5 – Find Vehicles by Color (Option 4)**
 Shows filtering vehicles by color (e.g., *blue*).
 
-![Find by Color](screenshots/car5.png)
+![Find by Color](screenshots/car4.png)
 
 ---
 
 #### **Figure 6 – Find Vehicles by Mileage (Option 5)**
 Displays vehicles that match a specific mileage range.
 
-![Find by Mileage](screenshots/car6.png)
+![Find by Mileage](screenshots/car5.png)
 
 ---
 
 #### **Figure 7 – Find Vehicles by Type (Option 6)**
 Filters the inventory by type (e.g., *SUV*).
 
-![Find by Type](screenshots/car7.png)
+![Find by Type](screenshots/car6.png)
 
 ---
 
