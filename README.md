@@ -92,6 +92,7 @@ Filters the inventory by type (e.g., *SUV*).
 
 
 #### **Figure 8 – Add a Vehicle (Option 8)**
+---
 Illustrates adding a new vehicle to the dealership and saving it to the CSV file.
 
 ![Add a Vehicle](screenshots/car8.png)
