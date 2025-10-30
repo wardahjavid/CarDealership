@@ -7,8 +7,8 @@ public class Main {
         System.out.println("======================================");
 
 
-        UserInterface userInterfacei = new UserInterface();
-        userInterfacei.display();
+        UserInterface userInterface = new UserInterface();
+        userInterface.display();
     }
 }
 

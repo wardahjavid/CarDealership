@@ -24,33 +24,15 @@ public class UserInterface {
             option = potatoscanner.nextLine();
 
             switch (option) {
-                case "1":
-                    processGetByPrice();
-                    break;
-                case "2":
-                    processGetByMakeModel();
-                    break;
-                case "3":
-                    processGetByYear();
-                    break;
-                case "4":
-                    processGetByColor();
-                    break;
-                case "5":
-                    processGetByMileage();
-                    break;
-                case "6":
-                    processGetByType();
-                    break;
-                case "7":
-                    processAllVehiclesRequest();
-                    break;
-                case "8":
-                    processAddVehicle();
-                    break;
-                case "9":
-                    processRemoveVehicle();
-                    break;
+                case "1": processGetByPrice(); break;
+                case "2": processGetByMakeModel(); break;
+                case "3": processGetByYear(); break;
+                case "4": processGetByColor(); break;
+                case "5": processGetByMileage(); break;
+                case "6": processGetByType(); break;
+                case "7": processAllVehiclesRequest(); break;
+                case "8": processAddVehicle(); break;
+                case "9": processRemoveVehicle(); break;
                 case "99":
                     System.out.println(GREEN + "Goodbye! Thank you for using the Dealership App." + RESET);
                     break;
@@ -60,7 +42,6 @@ public class UserInterface {
             }
         }
     }
-
 
     private void displayMenu() {
         System.out.println(BLUE + "\n=== DEALERSHIP MENU ===" + RESET);
@@ -88,7 +69,7 @@ public class UserInterface {
 
         // Table header
         System.out.printf(YELLOW + "%-8s %-6s %-10s %-12s %-10s %-10s %-10s %-10s" + RESET + "\n",
-                "VIN", "YEAR", "MAKE", "MODEL", "TYPE", "COLOR", "ODOMETER", "PRICE");
+                "ID", "YEAR", "MAKE", "MODEL", "TYPE", "COLOR", "ODOMETER", "PRICE");
         System.out.println("-------------------------------------------------------------------------------------------");
 
         boolean useGreen = true;
@@ -96,7 +77,7 @@ public class UserInterface {
         for (Vehicle vehicle : vehicles) {
             String color = useGreen ? GREEN : CYAN;
             System.out.printf(color + "%-8d %-6d %-10s %-12s %-10s %-10s %-10d $%-10.2f" + RESET + "\n",
-                    vehicle.getVin(),
+                    vehicle.getVehicle(),
                     vehicle.getYear(),
                     vehicle.getMake(),
                     vehicle.getModel(),
@@ -104,12 +85,11 @@ public class UserInterface {
                     vehicle.getColor(),
                     vehicle.getOdometer(),
                     vehicle.getPrice());
-            useGreen = !useGreen; // flip color each line
+            useGreen = !useGreen;
         }
 
         System.out.println("-------------------------------------------------------------------------------------------");
     }
-
 
     private void processGetByPrice() {
         try {
@@ -156,6 +136,7 @@ public class UserInterface {
         ArrayList<Vehicle> matches = dealership.getVehiclesByColor(color);
         displayVehicles(matches);
     }
+
     private void processGetByMileage() {
         try {
             Scanner input = new Scanner(System.in);
@@ -169,6 +150,7 @@ public class UserInterface {
             System.out.println(RED + "There is an error: Invalid mileage input." + RESET);
         }
     }
+
     private void processGetByType() {
         Scanner input = new Scanner(System.in);
         System.out.print("Enter type (SUV, Truck, Sedan, etc.): ");
@@ -188,22 +170,21 @@ public class UserInterface {
         } else {
             System.out.println("\n--- CURRENT VEHICLE INVENTORY ---");
             System.out.printf("%-8s %-6s %-12s %-12s %-10s %-10s %-10s %-10s%n",
-                    "VIN", "YEAR", "MAKE", "MODEL", "TYPE", "COLOR", "ODOMETER", "PRICE");
+                    "ID", "YEAR", "MAKE", "MODEL", "TYPE", "COLOR", "ODOMETER", "PRICE");
             System.out.println("--------------------------------------------------------------------------------");
-            for (Vehicle v : allVehicles) {
+            for (Vehicle vehicle : allVehicles) {
                 System.out.printf("%-8d %-6d %-12s %-12s %-10s %-10s %-10d $%.2f%n",
-                        v.getVin(), v.getYear(), v.getMake(), v.getModel(),
-                        v.getType(), v.getColor(), v.getOdometer(), v.getPrice());
+                        vehicle.getVehicle(), vehicle.getYear(), vehicle.getMake(), vehicle.getModel(),
+                        vehicle.getType(), vehicle.getColor(), vehicle.getOdometer(), vehicle.getPrice());
             }
         }
     }
 
-
     private void processAddVehicle() {
         try {
             Scanner input = new Scanner(System.in);
-            System.out.print("VIN: ");
-            int vin = input.nextInt();
+            System.out.print("Vehicle ID: ");
+            int vehicleId = input.nextInt();
             System.out.print("Year: ");
             int year = input.nextInt();
             input.nextLine(); // clear buffer
@@ -220,26 +201,31 @@ public class UserInterface {
             System.out.print("Price: ");
             double price = input.nextDouble();
 
-            Vehicle newVehicle = new Vehicle(vin, year, make, model, type, color, odometer, price);
+            Vehicle newVehicle = new Vehicle(vehicleId, year, make, model, type, color, odometer, price);
             dealership.addVehicle(newVehicle);
 
             new DealershipFileManager().saveDealership(dealership);
-            System.out.println("Vehicle added and saved to file!");
+            System.out.println(GREEN + "Vehicle added and saved to file!" + RESET);
         } catch (Exception e) {
-            System.out.println("Error adding vehicle: " + e.getMessage());
+            System.out.println(RED + "Error adding vehicle: " + e.getMessage() + RESET);
         }
     }
+
     private void processRemoveVehicle() {
         try {
             Scanner input = new Scanner(System.in);
-            System.out.print("Enter VIN to remove: ");
-            int vin = input.nextInt();
+            System.out.print("Enter Vehicle ID to remove: ");
+            int vehicleId = input.nextInt();
 
-            dealership.removeVehicle(vin);
-            new DealershipFileManager().saveDealership(dealership);
-            System.out.println("Vehicle removed and file updated!");
+            boolean removed = dealership.removeVehicleById(vehicleId);
+            if (removed) {
+                new DealershipFileManager().saveDealership(dealership);
+                System.out.println(GREEN + "Vehicle removed and file updated!" + RESET);
+            } else {
+                System.out.println(RED + "There is no vehicle found with that ID." + RESET);
+            }
         } catch (Exception e) {
-            System.out.println("Error removing vehicle: " + e.getMessage());
+            System.out.println(RED + "There is an error removing the vehicle: " + e.getMessage() + RESET);
         }
     }
 }
